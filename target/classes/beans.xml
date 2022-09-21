@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="fromUser" class="se.zust.edu.cn.User">
+        <property name="id" value="1"></property>
+        <property name="name" value="18"></property>
+        <property name="email" value="qw"></property>
+        <property name="mobile" value="w"></property>
+        <property name="wx" value="s"></property>
+    </bean>
+    <bean id="message" class="se.zust.edu.cn.Message">
+        <property name="id" value="1"></property>
+        <property name="topic" value="1"></property>
+        <property name="content" value="1"></property>
+        <property name="from" ref="fromUser"></property>
+        <property name="to" ref="toUser"></property>
+    </bean>
+    <bean id="toUser" class="se.zust.edu.cn.User">
+        <property name="id" value="1"></property>
+        <property name="name" value="18"></property>
+        <property name="email" value="qw"></property>
+        <property name="mobile" value="w"></property>
+        <property name="wx" value="s"></property>
+    </bean>
+
+    <bean id="wechatService" class="se.zust.edu.cn.WechatMessageServiceImpl">
+        <constructor-arg index="0" value="12"></constructor-arg>
+        <constructor-arg index="1" value="12"></constructor-arg>
+    </bean>
+
+    <bean id="smsService" class="se.zust.edu.cn.SMSMessageServiceImpl">
+        <constructor-arg index="0" value="1"></constructor-arg>
+        <constructor-arg index="1" value="1"></constructor-arg>
+        <constructor-arg index="2" value="1"></constructor-arg>
+    </bean>
+
+    <bean id="emailService" class="se.zust.edu.cn.EmailMessageServiceImpl">
+        <constructor-arg index="0" value="1"></constructor-arg>
+        <constructor-arg index="1" value="2"></constructor-arg>
+        <constructor-arg index="2" value="3"></constructor-arg>
+    </bean>
+</beans>
